@@ -3,7 +3,7 @@ package com.hextortoise;
 import com.hextortoise.frames.MainFrame;
 
 /**
- * This Main class implements to run MainFrame.
+ * This Main class run MainFrame.
  *
  * @author Jang Jin Woo
  */
