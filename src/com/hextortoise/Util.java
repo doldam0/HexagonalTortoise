@@ -159,9 +159,9 @@ public class Util {
 				new Point((int)(sqrt3 / 2 * space), 2 * space),
 				new Point(0, (int)(5.0 / 2 * space))
 		};
-		for (int i = 0; i < result.length; i++) {
-			result[i].x += x;
-			result[i].y += y;
+		for (final Point point : result) {
+			point.x += x;
+			point.y += y;
 		}
 		return result;
 	}
