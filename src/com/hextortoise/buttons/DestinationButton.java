@@ -3,7 +3,7 @@ package com.hextortoise.buttons;
 import com.hextortoise.frames.MainFrame;
 
 public class DestinationButton extends NumberedButton {
-	public DestinationButton(MainFrame mainFrame) {
+	public DestinationButton(final MainFrame mainFrame) {
 		this.addActionListener(e -> {
 			final SourceButton selected = mainFrame.getSelected();
 			if (selected != null && this.getNumber() == 0) {

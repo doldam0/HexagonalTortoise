@@ -4,6 +4,6 @@ import com.hextortoise.frames.MainFrame;
 
 public class Main {
 	public static void main(String[] args) {
-		MainFrame mainFrame = new MainFrame();
+		final MainFrame mainFrame = new MainFrame();
 	}
 }

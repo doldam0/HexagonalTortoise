@@ -59,7 +59,7 @@ public class AnswerLabel extends BoardLabel {
 	}
 
 	@Override
-	public void setVisible(boolean aFlag) {
+	public void setVisible(final boolean aFlag) {
 		super.setVisible(aFlag);
 		if (aFlag) {
 			final Thread thread = new ChangeSizeThread(this);
