@@ -36,7 +36,6 @@ public class MainFrame extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		final BackgroundPanel panel = new BackgroundPanel("board.png");
-		this.setNumArea(panel);
 
 		this.sum = new Random().nextInt(23) + 40;
 		final BoardLabel sumLabel = new BoardLabel(
@@ -48,7 +47,9 @@ public class MainFrame extends JFrame {
 		sumLabel.setForeground(Color.WHITE);
 		panel.add(sumLabel);
 
-		initializeDestinations();
+		this.initializeDestinations();
+
+		this.initializeSource(panel);
 
 		this.setAnswerLabel(panel);
 
@@ -70,7 +71,7 @@ public class MainFrame extends JFrame {
 		this.calcSum();
 	}
 
-	private void setNumArea(final JPanel panel) {
+	private void initializeSource(final JPanel panel) {
 		final int buttonRadius = 83;
 		final int space = 25;
 		final int x = 300;

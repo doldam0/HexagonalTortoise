@@ -25,6 +25,7 @@ public class Util {
 			return OS_NAME.contains("sunos");
 		}
 	}
+
 	public static final String ROOT_PATH = new File(".").getAbsolutePath();
 	public static final String RESOURCES_PATH
 			= ROOT_PATH + File.separator + "src" + File.separator + "resources" + File.separator;
