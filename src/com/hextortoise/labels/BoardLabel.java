@@ -13,10 +13,17 @@ public class BoardLabel extends JLabel {
 
 	static {
 		try {
-			aquaFont = Font.createFont(
-					Font.TRUETYPE_FONT,
-					new File(Util.getResourcesPath("a아쿠아리움.ttf"))
-			);
+			if (Util.OS.isWindows()) {
+				aquaFont = Font.createFont(
+						Font.TRUETYPE_FONT,
+						new File(Util.getResourcesPath("a아쿠아리움.ttf"))
+				);
+			} else {
+				aquaFont = Font.createFont(
+						Font.TRUETYPE_FONT,
+						new File(Util.getResourcesPath("a아쿠아리움.otf"))
+				);
+			}
 		} catch (Exception exception) {
 			aquaFont = new JLabel().getFont();
 		}

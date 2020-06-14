@@ -6,6 +6,25 @@ import java.util.*;
 import java.util.List;
 
 public class Util {
+	public static class OS {
+		private static final String OS_NAME = System.getProperty("os.name").toLowerCase();
+
+		public static boolean isWindows() {
+			return OS_NAME.contains("win");
+		}
+
+		public static boolean isMac() {
+			return OS_NAME.contains("mac");
+		}
+
+		public static boolean isUnix() {
+			return OS_NAME.contains("nix") || OS_NAME.contains("nux") || OS_NAME.indexOf("aix") > 0;
+		}
+
+		public static boolean isSolaris() {
+			return OS_NAME.contains("sunos");
+		}
+	}
 	public static final String ROOT_PATH = new File(".").getAbsolutePath();
 	public static final String RESOURCES_PATH
 			= ROOT_PATH + File.separator + "src" + File.separator + "resources" + File.separator;

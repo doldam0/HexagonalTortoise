@@ -11,8 +11,8 @@ public class NumberedButton extends JButton {
 		super(new ImageIcon(Util.getResourcesPath(imageName)));
 		this.setBorder(BorderFactory.createEmptyBorder());
 		this.setBorderPainted(false);
-      		this.setContentAreaFilled(false);
-      		this.setFocusPainted(false);
+        this.setContentAreaFilled(false);
+        this.setFocusPainted(false);
 	}
 
 	public NumberedButton(final int i) {

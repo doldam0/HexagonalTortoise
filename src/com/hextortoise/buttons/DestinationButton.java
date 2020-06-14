@@ -6,7 +6,7 @@ public class DestinationButton extends NumberedButton {
 	public DestinationButton(MainFrame mainFrame) {
 		this.addActionListener(e -> {
 			final SourceButton selected = mainFrame.getSelected();
-			if (selected != null) {
+			if (selected != null && this.getNumber() == 0) {
 				this.setNumber(selected.getNumber());
 				if (!mainFrame.isTortoiseValid()) {
 					mainFrame.correctLabel.setVisible(false);
@@ -17,7 +17,6 @@ public class DestinationButton extends NumberedButton {
 					mainFrame.wrongLabel.setVisible(false);
 					selected.setVisible(false);
 					mainFrame.calcSum();
-					mainFrame.select(null);
 				}
 			}
 		});
