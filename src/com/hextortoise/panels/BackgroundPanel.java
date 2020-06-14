@@ -1,10 +1,15 @@
 package com.hextortoise.panels;
 
-import com.hextortoise.Util;
+import com.hextortoise.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This BackgroundPanel class implements the panel which can show the background.
+ *
+ * @author Jang Jin Woo
+ */
 public class BackgroundPanel extends JPanel {
 	ImageIcon img;
 

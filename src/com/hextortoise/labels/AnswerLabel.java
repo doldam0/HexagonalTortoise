@@ -3,6 +3,12 @@ package com.hextortoise.labels;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This ChangeSizeThread class implements the helper thread
+ * which helps AnswerLabel to fade out.
+ *
+ * @author Jang Jin Woo
+ */
 class ChangeSizeThread extends Thread {
 	private Thread thread = null;
 	private final String threadName;
@@ -53,6 +59,12 @@ class ChangeSizeThread extends Thread {
 	}
 }
 
+/**
+ * This AnswerLabel class implements the labels
+ * which let users know this tortoise is corrected or uncorrected.
+ *
+ * @author Jang Jin Woo
+ */
 public class AnswerLabel extends BoardLabel {
 	public AnswerLabel(final JFrame frame, final String text) {
 		super(frame, text, 60.0f, 0, 0);

@@ -1,6 +1,7 @@
 package com.hextortoise.frames;
 
-import com.hextortoise.Util;
+import com.hextortoise.utils.Algorithms;
+import com.hextortoise.utils.Util;
 import com.hextortoise.buttons.DestinationButton;
 import com.hextortoise.buttons.SourceButton;
 import com.hextortoise.labels.AnswerLabel;
@@ -11,6 +12,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 
+/**
+ * This MainFrame class implements the Hexagonal Tortoise Game
+ *
+ * @author Chun Sae Hun
+ */
 public class MainFrame extends JFrame {
 	public static final int WIDTH = 1024;
 	public static final int HEIGHT = 788;
@@ -47,9 +53,9 @@ public class MainFrame extends JFrame {
 		sumLabel.setForeground(Color.WHITE);
 		panel.add(sumLabel);
 
-		this.initializeDestinations();
-
 		this.initializeSource(panel);
+
+		this.initializeDestinations(panel);
 
 		this.setAnswerLabel(panel);
 
@@ -58,8 +64,29 @@ public class MainFrame extends JFrame {
 		this.setVisible(true);
 	}
 
-	private void initializeDestinations() {
-		final int[] randomTortoise = Util.getRandomTortoise(RANDOM_NUMS, BUTTON_NUMS, this.sum);
+	private void initializeDestinations(final JPanel panel) {
+		final int buttonRadius = 83;
+		final int space = 25;
+		final int x = 300;
+		final int y = HEIGHT / 2 - 30;
+
+		final Point[] numsPosition = Util.getButtonPositions(
+				x, y, buttonRadius + space
+		);
+		for (int i = 0; i < BUTTON_NUMS; i++) {
+			this.destinations[i] = new DestinationButton(this);
+			this.destinations[i].setBounds(
+					numsPosition[i].x - 41,
+					numsPosition[i].y - 41,
+					buttonRadius, buttonRadius
+			);
+		}
+
+		for (final JButton button : this.destinations) {
+			panel.add(button);
+		}
+
+		final int[] randomTortoise = Algorithms.getRandomTortoise(RANDOM_NUMS, BUTTON_NUMS, this.sum);
 
 		for (int i = 0; i < BUTTON_NUMS; i++) {
 			if (randomTortoise[i] != 0) {
@@ -76,21 +103,6 @@ public class MainFrame extends JFrame {
 		final int space = 25;
 		final int x = 300;
 		final int y = HEIGHT / 2 - 30;
-		final Point[] numsPosition = Util.getButtonPositions(
-				x, y, buttonRadius + space
-		);
-		for (int i = 0; i < BUTTON_NUMS; i++) {
-			this.destinations[i] = new DestinationButton(this);
-			this.destinations[i].setBounds(
-					numsPosition[i].x - 41,
-					numsPosition[i].y - 41,
-					buttonRadius, buttonRadius
-			);
-		}
-
-		for (final JButton button : this.destinations) {
-			panel.add(button);
-		}
 
 		final Point LEFT_CORNER = new Point(650, 300);
 		final int columns = BUTTON_NUMS / 4;
@@ -108,7 +120,7 @@ public class MainFrame extends JFrame {
 			panel.add(button);
 		}
 
-		final Point[] sumPositions = Util.getSumPositions(
+		final Point[] sumPositions = Util.getSumLabelPositions(
 				x, y, buttonRadius + space
 		);
 
@@ -150,13 +162,13 @@ public class MainFrame extends JFrame {
 			nums[i] = this.destinations[i].getNumber();
 		}
 
-		return Util.isTortoiseValid(nums, this.sum);
+		return Algorithms.isTortoiseValid(nums, this.sum);
 	}
 
 	public void calcSum() {
-		for (int i = 0; i < Util.HEXAGONS.length; i++) {
+		for (int i = 0; i < Algorithms.HEXAGONS.length; i++) {
 			int sum = 0;
-			for (final int index : Util.HEXAGONS[i]) {
+			for (final int index : Algorithms.HEXAGONS[i]) {
 				sum += this.destinations[index].getNumber();
 			}
 			this.sumLabels[i].setText(Integer.toString(sum));

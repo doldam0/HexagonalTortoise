@@ -1,11 +1,16 @@
 package com.hextortoise.labels;
 
-import com.hextortoise.Util;
+import com.hextortoise.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
+/**
+ * This BoardLabel implements all labels which are used in this game.
+ *
+ * @author Jang Jin Woo
+ */
 public class BoardLabel extends JLabel {
 	protected static Font aquaFont;
 

@@ -1,9 +1,15 @@
 package com.hextortoise.buttons;
 
-import com.hextortoise.Util;
+import com.hextortoise.utils.Util;
 
 import javax.swing.*;
 
+/**
+ * This SourceButton class implements all buttons
+ * which are used in this game.
+ *
+ * @author Chun Sae Hun
+ */
 public class NumberedButton extends JButton {
 	private int number;
 

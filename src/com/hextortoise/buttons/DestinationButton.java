@@ -2,6 +2,12 @@ package com.hextortoise.buttons;
 
 import com.hextortoise.frames.MainFrame;
 
+/**
+ * This SourceButton class implements the destination buttons
+ * which are the buttons on the left side of this game.
+ *
+ * @author Chun Sae Hun
+ */
 public class DestinationButton extends NumberedButton {
 	public DestinationButton(final MainFrame mainFrame) {
 		this.addActionListener(e -> {
